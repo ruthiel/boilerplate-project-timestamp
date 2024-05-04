@@ -35,7 +35,7 @@ app.get('/api/:date?', (req, res) => {
         UTC: dateObj.toUTCString(),
       });
   } else {
-    res.status(400).json({ error: 'No date provided' });
+    res.status(400).json({ error: 'Invalid Date' });
   }
 });
 
