@@ -30,7 +30,7 @@ app.get('/api/:date?', (req, res) => {
     const currentDate = new Date();
     res.json({
       unix: currentDate.getTime(),
-      UTC: currentDate.toUTCString(),
+      utc: currentDate.toUTCString(),
     });
     return;
   }
@@ -44,7 +44,7 @@ app.get('/api/:date?', (req, res) => {
 
   res.json({
     unix: dateObj.getTime(),
-    UTC: dateObj.toUTCString(),
+    utc: dateObj.toUTCString(),
   });
 });
 
