@@ -35,7 +35,9 @@ app.get('/api/:date?', (req, res) => {
     return;
   }
 
-  const dateObj = isUnixFormat(date) ? new Date(Number(date)) : new Date(date);
+  const dateObj = isUnixFormat(date)
+    ? new Date(parseInt(date))
+    : new Date(date);
 
   if (isNaN(dateObj.getTime())) {
     res.status(400).json({ error: 'Invalid Date' });
@@ -49,7 +51,7 @@ app.get('/api/:date?', (req, res) => {
 });
 
 function isUnixFormat(date) {
-  return !date.includes('-');
+  return /^\d{5,}/.test(date);
 }
 
 // Listen on port set in environment variable or default to 3000
